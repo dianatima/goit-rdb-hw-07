@@ -1,0 +1,26 @@
+USE bd3;
+
+p_1
+————————————————————————————————————————————————
+SELECT id, date,YEAR(date) as date_year, MONTH(date) as date_month, DAY(date) as date_day FROM orders;
+
+
+p_2
+————————————————————————————————————————————————
+SELECT id, date, DATE_ADD(date, INTERVAL 1 DAY) as add_day FROM orders;
+
+
+p_3
+————————————————————————————————————————————————
+SELECT id, date, UNIX_TIMESTAMP(date) as timestamp_date FROM orders;
+
+
+p_4
+————————————————————————————————————————————————
+SELECT count(id) FROM orders
+WHERE date BETWEEN '1996-07-10 00:00:00' and '1996-10-08 00:00:00';
+
+
+p_5
+————————————————————————————————————————————————
+SELECT id, date, JSON_OBJECT('id', id, 'date', date) as json_object FROM orders;
